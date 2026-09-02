@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refleksi Pembelajaran Kreatif & Inovatif | E-Portofolio Ilham Kurnia Septiadi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    
+    <style>
+      /* Styling khusus halaman detail */
+      .detail-container { max-width: 960px; margin: 0 auto; padding: 3rem 0 6rem; }
+      .detail-header { text-align: center; margin-bottom: 3rem; padding-top: 100px; }
+      .detail-header h1 { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 1rem; }
+      
+      .content-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      }
+      .content-card h2 {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        border-bottom: 2px solid rgba(29, 78, 216, 0.1);
+        padding-bottom: 0.8rem;
+      }
+      .content-card h2 i { color: var(--secondary); }
+      .content-card p, .content-card li { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+      .content-card ul { padding-left: 1.5rem; }
+      
+      /* Tab Navigasi Dokumen */
+      .doc-tabs {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .tab-btn {
+        background: rgba(29, 78, 216, 0.08);
+        color: var(--primary);
+        border: 1px solid rgba(29, 78, 216, 0.2);
+        padding: 0.8rem 1.4rem;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: 'Poppins', sans-serif;
+      }
+      .tab-btn:hover {
+        background: rgba(29, 78, 216, 0.15);
+        color: var(--secondary);
+      }
+      .tab-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+      }
+      .tab-btn.active i {
+        color: var(--accent);
+      }
+
+      /* Pane Konten Tab */
+      .tab-pane {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+      .tab-pane.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .artefak-box {
+        background: rgba(29, 78, 216, 0.03);
+        border-left: 4px solid var(--secondary);
+        padding: 1.8rem;
+        border-radius: 0 12px 12px 0;
+        margin-bottom: 1.8rem;
+        border: 1px solid rgba(29, 78, 216, 0.08);
+        border-left-width: 4px;
+      }
+      .artefak-box h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.6rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; }
+      .artefak-box h3 i { color: var(--accent); }
+
+      /* PDF Viewer & Action Buttons */
+      .pdf-preview-container {
+        margin-top: 1.2rem;
+        background: white;
+        border-radius: 12px;
+        padding: 1rem;
+        border: 1px solid rgba(0,0,0,0.08);
+      }
+      .pdf-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+      .btn-pdf {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary);
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+      .btn-pdf:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+      }
+      .btn-pdf.secondary {
+        background: rgba(29, 78, 216, 0.1);
+        color: var(--secondary);
+        border: 1px solid rgba(29, 78, 216, 0.2);
+      }
+      .btn-pdf.secondary:hover {
+        background: var(--secondary);
+        color: white;
+      }
+
+      .conclusion-highlight {
+        background: linear-gradient(135deg, rgba(29, 78, 216, 0.05), rgba(217, 119, 6, 0.05));
+        border: 1px solid rgba(29, 78, 216, 0.15);
+        border-radius: 16px;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mesh-bg">
+      <div class="mesh-blob blob-1"></div>
+      <div class="mesh-blob blob-2"></div>
+      <div class="mesh-blob blob-3"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar scrolled" id="navbar">
+      <div class="container nav-container">
+        <div class="nav-left">
+          <img src="../logo.png" alt="Logo Universitas" class="univ-logo-img" />
+          <span class="brand-name">E-Portofolio <span class="highlight">PPG.</span></span>
+        </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <nav class="nav-right" id="nav-menu">
+          <a href="../index.html" class="nav-link">Beranda</a>
+          <div class="dropdown">
+            <button class="nav-link dropbtn">E-Portofolio 1 <i class="fa-solid fa-chevron-down chevron"></i></button>
+            <div class="dropdown-content">
+              <a href="../profile.html"><i class="fa-solid fa-user-graduate"></i> Profil Mahasiswa</a>
+              <a href="../artefak.html"><i class="fa-solid fa-file-waveform"></i> Artefak Produk</a>
+              <a href="../penilaian.html"><i class="fa-solid fa-list-check"></i> Instrumen Penilaian</a>
+              <a href="../modelguru.html"><i class="fa-solid fa-bullseye"></i> Model Guru</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="nav-link dropbtn">E-Portofolio 2 <i class="fa-solid fa-chevron-down chevron"></i></button>
+            <div class="dropdown-content">
+              <a href="../refleksi.html"><i class="fa-solid fa-arrows-rotate"></i> Refleksi Akhir</a>
+              <a href="../filosofi.html"><i class="fa-solid fa-seedling"></i> Filosofi Mengajar</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="nav-link dropbtn active">Refleksi <i class="fa-solid fa-chevron-down chevron"></i></button>
+            <div class="dropdown-content">
+              <a href="../refleksi-semester1.html" class="active"><i class="fa-solid fa-book"></i> Semester 1</a>
+              <a href="../refleksi-semester2.html"><i class="fa-solid fa-book-open"></i> Semester 2</a>
+            </div>
+          </div>
+          <a href="../dokumentasi.html" class="nav-link">Dokumentasi</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container detail-container">
+        <div class="detail-header">
+          <div class="badge-tech"><i class="fa-solid fa-lightbulb"></i> Semester 1 - Mata Kuliah 03</div>
+          <h1>Pembelajaran Kreatif <span class="text-gradient">&amp; Inovatif</span></h1>
+          <p>Merancang strategi pembelajaran aktif, pemanfaatan media digital interaktif, serta metode pengajaran modern untuk membakar antusiasme dan kreativitas siswa di era digital.</p>
+        </div>
+
+        <!-- 1. ARTEFAK PEMBELAJARAN & DOKUMEN PDF (DENGAN 3 TAB PILIHAN) -->
+        <section class="content-card">
+          <h2><i class="fa-solid fa-file-lines"></i> 1. Dokumen Autentik, Lembar Refleksi &amp; Artefak</h2>
+          <p>Silakan pilih tombol di bawah ini untuk melihat pratinjau dokumen lembar refleksi atau artefak pembelajaran secara interaktif:</p>
+          
+          <!-- Tombol Navigasi Tab -->
+          <div class="doc-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-refleksi')">
+              <i class="fa-solid fa-file-pdf"></i> Lembar Refleksi (LK 2)
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-artefak1')">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Artefak: Penelitian Tindakan Kelas
+            </button>
+          </div>
+
+          <!-- Tab 1: Lembar Refleksi -->
+          <div id="tab-refleksi" class="tab-pane active">
+            <div class="artefak-box">
+              <h3><i class="fa-solid fa-file-pdf"></i> Lembar Refleksi Pembelajaran Kreatif &amp; Inovatif (LK 2)</h3>
+              <p>Dokumen lengkap LK 2 yang menguraikan analisis tantangan pembelajaran konvensional, inovasi strategi berbasis teknologi, serta evaluasi dampak kreativitas mengajar di kelas.</p>
+              <div class="pdf-preview-container">
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-info text-secondary"></i> Pratinjau Lembar Refleksi:</p>
+                <iframe src="../Dokumen/Refeksi PKI.pdf" width="100%" height="450px" style="border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;" onerror="this.style.display='none';"></iframe>
+                <div class="pdf-actions">
+                  <a href="../Dokumen/Refeksi PKI.pdf" target="_blank" class="btn-pdf"><i class="fa-solid fa-eye"></i> Buka Fullscreen</a>
+                  <a href="../Dokumen/Refeksi PKI.pdf" download class="btn-pdf secondary"><i class="fa-solid fa-download"></i> Unduh PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Artefak -->
+          <div id="tab-artefak1" class="tab-pane">
+            <div class="artefak-box">
+              <h3><i class="fa-solid fa-file-pdf"></i> Artefak: Rancangan Media Pembelajaran Digital Interaktif</h3>
+              <p>Dokumen perancangan media interaktif berbasis game/simulasi digital yang dirancang untuk mempermudah pemahaman konsep logika pemrograman dan informatika.</p>
+              <div class="pdf-preview-container">
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-info text-secondary"></i> Pratinjau Artefak A:</p>
+                <iframe src="../Dokumen/PTK_Ilham Kurnia Septiadi.pdf" width="100%" height="450px" style="border: 1px solid rgba(0,0,0,0.1); border-radius: 8px;" onerror="this.style.display='none';"></iframe>
+                <div class="pdf-actions">
+                  <a href="../Dokumen/PTK_Ilham Kurnia Septiadi.pdf" target="_blank" class="btn-pdf"><i class="fa-solid fa-eye"></i> Buka Fullscreen</a>
+                  <a href="../Dokumen/PTK_Ilham Kurnia Septiadi.pdf" download class="btn-pdf secondary"><i class="fa-solid fa-download"></i> Unduh PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- 2. REFLEKSI PENGALAMAN BELAJAR -->
+        <section class="content-card">
+          <h2><i class="fa-solid fa-arrows-rotate"></i> 2. Refleksi Pengalaman Belajar (Koneksi, Tantangan &amp; Transformasi)</h2>
+          <p>Mata kuliah ini merevolusi pandangan saya mengenai pentingnya membawa pembaruan dalam proses pembelajaran di kelas era digital:</p>
+          <ul>
+            <li><strong>Inovasi Pedagogis:</strong> Menyadari bahwa teknologi hanyalah alat (*tools*), sedangkan esensi inovasi terletak pada perancangan pengalaman belajar aktif yang menempatkan siswa sebagai pusat pembelajaran (*student-centered*).</li>
+            <li><strong>Pengembangan Keterampilan 4C:</strong> Merancang strategi instruksional yang secara sengaja mengasah *Critical Thinking, Creativity, Collaboration,* dan *Communication* peserta didik melalui pemecahan masalah nyata.</li>
+            <li><strong>Adaptasi Teknologi Terintegrasi:</strong> Memanfaatkan berbagai platform digital dan media visual untuk mengonkretkan materi informatika yang abstrak menjadi interaktif dan menyenangkan.</li>
+          </ul>
+        </section>
+
+        <!-- 3. KESIMPULAN & AKSI NYATA KOMPREHENSIF -->
+        <section class="content-card conclusion-highlight">
+          <h2><i class="fa-solid fa-bullseye"></i> 3. Kesimpulan &amp; Aksi Nyata Komprehensif</h2>
+          <p>Penguasaan prinsip pembelajaran kreatif dan inovatif memantapkan komitmen profesional saya dalam mengajar:</p>
+          <ul>
+            <li><strong>Desain Pembelajaran Bervariasi:</strong> Konsisten menyusun modul ajar yang memadukan metode pembelajaran berbasis proyek (*PBL/PjBL*) dan gamifikasi interaktif.</li>
+            <li><strong>Mendorong Eksplorasi Siswa:</strong> Menciptakan iklim kelas yang merangsang kebebasan berfikir kreatif, bereksperimen dengan teknologi, dan berani mengemukakan ide-ide baru.</li>
+            <li><strong>Evaluasi &amp; Pengembangan Berkelanjutan:</strong> Melakukan refleksi rutin pasca-pembelajaran guna mengukur efektivitas media digital dan memperbarui strategi pengajaran secara berkelanjutan.</li>
+          </ul>
+        </section>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="../refleksi-semester1.html" class="btn-glow" style="display: inline-flex; align-items: center; gap: 0.5rem;"><i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Mata Kuliah Semester 1</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <div class="footer-col brand-col">
+          <h3>E-Portofolio<span> PPG</span></h3>
+          <p>Ruang rekam jejak Praktik Pengalaman Lapangan (PPL). Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+        </div>
+        <div class="footer-col links-col">
+          <h4><i class="fa-solid fa-book-open"></i> E-Portofolio 1</h4>
+          <ul>
+            <li><a href="../profile.html"><i class="fa-solid fa-user-graduate"></i> Profil Mahasiswa</a></li>
+            <li><a href="../artefak.html"><i class="fa-solid fa-file-waveform"></i> Artefak Produk</a></li>
+            <li><a href="../penilaian.html"><i class="fa-solid fa-list-check"></i> Instrumen Penilaian</a></li>
+            <li><a href="../modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a></li>
+          </ul>
+        </div>
+        <div class="footer-col links-col">
+          <h4><i class="fa-solid fa-layer-group"></i> E-Portofolio 2</h4>
+          <ul>
+            <li><a href="../refleksi.html"><i class="fa-solid fa-arrows-rotate"></i> Refleksi Akhir</a></li>
+            <li><a href="../filosofi.html"><i class="fa-solid fa-seedling"></i> Filosofi Mengajar</a></li>
+          </ul>
+        </div>
+        <div class="footer-col contact-col">
+          <h4><i class="fa-solid fa-location-dot"></i> Lokasi LPTK</h4>
+          <p><i class="fa-solid fa-building-columns"></i> Universitas Negeri Yogyakarta</p>
+          <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=Universitas%20Negeri%20Yogyakarta&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="100%" height="150" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <div class="social-links">
+            <a href="mailto:ilhamkurniaseptiadi@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+            <a href="https://www.instagram.com/_kurnia.sp" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>© 2026 Ilham Kurnia Septiadi - E-Portofolio PPL PPG. Semua Hak Cipta Dilindungi.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) { navbar.classList.add("scrolled"); } else { navbar.classList.remove("scrolled"); }
+      });
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("nav-menu");
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      });
+
+      // Fungsi Tab Interaktif untuk Dokumen PDF
+      function openTab(evt, tabName) {
+        let i, tabPane, tabBtn;
+        
+        tabPane = document.getElementsByClassName("tab-pane");
+        for (i = 0; i < tabPane.length; i++) {
+          tabPane[i].classList.remove("active");
+        }
+        
+        tabBtn = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tabBtn.length; i++) {
+          tabBtn[i].classList.remove("active");
+        }
+        
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
